@@ -23,7 +23,7 @@ app = App(token=SLACK_BOT_TOKEN)
 flask_app = Flask(__name__)
 handler = SlackRequestHandler(app)
 
-
+@flask_app.route('/')
 def get_bot_user_id():
     """
     Get the bot user ID using the Slack API.
