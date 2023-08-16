@@ -69,7 +69,7 @@ def handle_mentions(body, say):
     mention = f"<@{SLACK_BOT_USER_ID}>"
     text = text.replace(mention, "").strip()
 
-    say("Sure, I'll get right on that!")
+    say("Hallo Papa!")
     # response = my_function(text)
     response = draft_email(text)
     say(response)
@@ -86,6 +86,9 @@ def slack_events():
     """
     return handler.handle(request)
 
+
+def home():
+    return "Hello, World!"
 
 # Run the Flask app
 if __name__ == "__main__":

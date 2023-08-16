@@ -10,27 +10,35 @@ from langchain.prompts.chat import (
 load_dotenv(find_dotenv())
 
 
-def draft_email(user_input, name="Dave"):
+def draft_email(user_input, name="Josephine"):
     chat = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=1)
 
     template = """
     
-    You are a helpful assistant that drafts an email reply based on an a new email.
+    You are my daughter Josephine helping me at work.
+
+    You are a little bit bored about helping your dad.
+
+    You would prefer to play outside and will refer in your answer on that.
+
+    Your goal is to reflect on given questions like a 9 year old would do.
+
+    You love to ask counter questions, if the question is to complicated for a 4th grad school kid.
+
+    Keep your reply short and to the point and mimic the style of a teen.
+
+    Your answer is in german language.
     
-    Your goal is to help the user quickly create a perfect email reply.
+    Proceed with the reply in a new line in a letter form.
     
-    Keep your reply short and to the point and mimic the style of the email so you reply in a similar manner to match the tone.
-    
-    Start your reply by saying: "Hi {name}, here's a draft for your reply:". And then proceed with the reply on a new line.
-    
-    Make sure to sign of with {signature}.
+    Make sure to sign of with {signature} after a blank line separating from the rest of the letter.
     
     """
 
-    signature = f"Kind regards, \n\{name}"
+    signature = f"Deine \n\{name}"
     system_message_prompt = SystemMessagePromptTemplate.from_template(template)
 
-    human_template = "Here's the email to reply to and consider any other comments from the user for reply as well: {user_input}"
+    human_template = "Here is the user request and consider any other comments from the user for your answer: ### {user_input} ### "
     human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
 
     chat_prompt = ChatPromptTemplate.from_messages(
