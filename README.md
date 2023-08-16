@@ -36,7 +36,7 @@ The OpenAI API is powered by a diverse set of [models](https://platform.openai.c
 #### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/langchain-experiments.git
+git clone https://github.com/daveebbelaar/langchain-experiments.git
 ```
 
 #### 2. Create a Python environment
@@ -66,7 +66,7 @@ pip install -r requirements.txt
 First, create a `.env` file in the root directory of the project. Inside the file, add your OpenAI API key:
 
 ```makefile
-OPENAI_API_KEY=your_api_key_here
+OPENAI_API_KEY="your_api_key_here"
 ```
 
 Save the file and close it. In your Python script or Jupyter notebook, load the `.env` file using the following code:
